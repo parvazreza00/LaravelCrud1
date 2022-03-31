@@ -67,6 +67,7 @@ class CategoryController extends Controller
         $data['category_name'] = $request->category_name;
         $data['user_id']= Auth::user()->id;
         DB::table('categories')->where('id', $id)->update($data);
+        
         return redirect()->route('all.category')->with('success','Category Updated successfully');
     }
 

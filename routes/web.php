@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\CategoryController;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +30,12 @@ Route::get('/category/softdelete/{id}', [CategoryController::class, 'SoftDelete'
 Route::get('/category/restore/{id}', [CategoryController::class, 'Restore']);
 Route::get('/category/p-delete/{id}', [CategoryController::class, 'PDelete']);
 
-
+//brand routing
+Route::get('/brand/all', [BrandController::class, 'AllBrand'])->name('all.brand');
+Route::post('/brand/add', [BrandController::class, 'StoreBrand'])->name('store.brand');
+Route::get('/brand/edit/{id}', [BrandController::class, 'Edit']);
+Route::post('/brand/update/{id}', [BrandController::class, 'Update']);
+Route::get('/brand/delete/{id}', [BrandController::class, 'BrandDelete']);
 
 
 
